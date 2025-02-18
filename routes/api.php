@@ -26,18 +26,18 @@ Route::post('/whatsapp/webhook', [WhatsAppWebhookController::class, 'receiveMess
 
 
 
-Route::get('/webhook/whatsapp', function (Request $request) {
-    $verify_token = env('WHATSAPP_VERIFY_TOKEN'); // Debe coincidir con el Verify Token que configures en Facebook
-    $mode = $request->query('hub_mode');
-    $token = $request->query('hub_verify_token');
-    $challenge = $request->query('hub_challenge');
+// Route::get('/webhook/whatsapp', function (Request $request) {
+//     $verify_token = env('WHATSAPP_VERIFY_TOKEN'); // Debe coincidir con el Verify Token que configures en Facebook
+//     $mode = $request->query('hub_mode');
+//     $token = $request->query('hub_verify_token');
+//     $challenge = $request->query('hub_challenge');
 
-    if ($mode === 'subscribe' && $token === $verify_token) {
-        return response($challenge, 200);
-    }
+//     if ($mode === 'subscribe' && $token === $verify_token) {
+//         return response($challenge, 200);
+//     }
 
-    return response('Unauthorized', 403);
-});
+//     return response('Unauthorized', 403);
+// });
 
 
 
